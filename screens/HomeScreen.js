@@ -28,17 +28,15 @@ const HomeScreen = () => {
 
     useEffect(()=>{
         sanityClient.fetch(
-            
             `
             *[_type=="featured"] {
-                ....
+                ...,
                 restaurants[]->{
-                  ....
+                  ...,
                     dishes[]->
-                }
+                },
               }
             `
-            
             ).then(data=>{
                 setFeaturedCategories(data)
             })
